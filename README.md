@@ -19,11 +19,6 @@ Copy `42header.vim` to your `~/.vim/plugin` folder. You're set!
 
 ## Why?
 Part of the **Mexican Standoff** rush, I decided to add a few bonus features
-and I now use this as my header for 42 files. Please feel free to add things :)!
-
-## Note
-Hey, you. If you're also doing the rush, don't steal it! Staff will know. Feel
-free to ask me any questions on Slack or e-mail, my login is the same as my
-GitHub username.
-
-Good luck, and thanks for all the fish!
+and I now use this as my header for 42 files. On my linux setup, I have changed
+the variable names in order to be able to have my own environment, but still
+have a functional school environment. Feel free to add things :)!
