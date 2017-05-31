@@ -17,6 +17,14 @@ Also, don't forget to set your `$USER` and `$MAIL` variables, marvin lives!
 ## Usage
 Copy `42header.vim` to your `~/.vim/plugin` folder. You're set!
 
+### vim-plug
+If you use vim-plug or any other plugin manager, simply add this line to your
+plugin initialization:
+
+```vim
+Plug 'pbondoer/vim-42header'
+```
+
 ## Why?
 Part of the **Mexican Standoff** rush, I decided to add a few bonus features
 and I now use this as my header for 42 files. On my linux setup, I have changed
