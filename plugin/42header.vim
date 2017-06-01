@@ -6,7 +6,7 @@
 "    By: pbondoer <pbondoer@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 19:39:01 by pbondoer          #+#    #+#              "
-"    Updated: 2017/06/01 11:08:55 by pbondoer         ###   ########.fr        "
+"    Updated: 2017/06/01 11:10:15 by pbondoer         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -46,7 +46,7 @@ let s:types		= {
 			\['!', '!', '/']
 			\}
 
-function s:ft_filetype()
+function s:filetype()
 	let l:f = s:filename()
 
 	let s:start	= '#'
@@ -63,7 +63,7 @@ function s:ft_filetype()
 
 endfunction
 
-function s:ft_ascii(n)
+function s:ascii(n)
 	return s:asciiart[a:n - 3]
 endfunction
 
@@ -79,15 +79,15 @@ function s:line(n)
 	elseif a:n == 2 || a:n == 10 " blank line
 		return s:textline('', '')
 	elseif a:n == 3 || a:n == 5 || a:n == 7 " empty with ascii
-		return s:textline('', s:ft_ascii(a:n))
+		return s:textline('', s:ascii(a:n))
 	elseif a:n == 4 " filename
-		return s:textline(s:filename(), s:ft_ascii(a:n))
+		return s:textline(s:filename(), s:ascii(a:n))
 	elseif a:n == 6 " author
-		return s:textline("By: " . s:user() . " <" . s:mail() . ">", s:ft_ascii(a:n))
+		return s:textline("By: " . s:user() . " <" . s:mail() . ">", s:ascii(a:n))
 	elseif a:n == 8 " created
-		return s:textline("Created: " . s:date() . " by " . s:user(), s:ft_ascii(a:n))
+		return s:textline("Created: " . s:date() . " by " . s:user(), s:ascii(a:n))
 	elseif a:n == 9 " updated
-		return s:textline("Updated: " . s:date() . " by " . s:user(), s:ft_ascii(a:n))
+		return s:textline("Updated: " . s:date() . " by " . s:user(), s:ascii(a:n))
 	endif
 endfunction
 
@@ -132,8 +132,8 @@ function s:insert()
 	endwhile
 endfunction
 
-function s:ft_update()
-	call s:ft_filetype()
+function s:update()
+	call s:filetype()
 	if getline(9) =~ s:start . repeat(' ', s:margin - strlen(s:start)) . "Updated: "
 		if &mod
 			call setline(9, s:line(9))
@@ -145,7 +145,7 @@ function s:ft_update()
 endfunction
 
 function s:stdheader()
-	if s:ft_update()
+	if s:update()
 		call s:insert()
 	endif
 endfunction
@@ -153,4 +153,4 @@ endfunction
 " Bind command and shortcut
 command! Stdheader call s:stdheader ()
 nmap <f1> <esc>:Stdheader<CR>
-autocmd BufWritePre * call s:ft_update ()
+autocmd BufWritePre * call s:update ()
