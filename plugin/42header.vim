@@ -6,7 +6,7 @@
 "    By: pbondoer <pbondoer@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 19:39:01 by pbondoer          #+#    #+#              "
-"    Updated: 2017/06/01 11:10:15 by pbondoer         ###   ########.fr        "
+"    Updated: 2017/06/01 11:13:28 by pbondoer         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -46,7 +46,7 @@ let s:types		= {
 			\['!', '!', '/']
 			\}
 
-function s:filetype()
+function! s:filetype()
 	let l:f = s:filename()
 
 	let s:start	= '#'
@@ -63,17 +63,17 @@ function s:filetype()
 
 endfunction
 
-function s:ascii(n)
+function! s:ascii(n)
 	return s:asciiart[a:n - 3]
 endfunction
 
-function s:textline(left, right)
+function! s:textline(left, right)
 	let l:left = strpart(a:left, 0, s:length - s:margin * 3 - strlen(a:right) + 1)
 
 	return s:start . repeat(' ', s:margin - strlen(s:start)) . l:left . repeat(' ', s:length - s:margin * 2 - strlen(l:left) - strlen(a:right)) . a:right . repeat(' ', s:margin - strlen(s:end)) . s:end
 endfunction
 
-function s:line(n)
+function! s:line(n)
 	if a:n == 1 || a:n == 11 " top and bottom line
 		return s:start . ' ' . repeat(s:fill, s:length - strlen(s:start) - strlen(s:end) - 2) . ' ' . s:end
 	elseif a:n == 2 || a:n == 10 " blank line
@@ -91,7 +91,7 @@ function s:line(n)
 	endif
 endfunction
 
-function s:user()
+function! s:user()
 	let l:user = $USER
 	if strlen(l:user) == 0
 		let l:user = "marvin"
@@ -99,7 +99,7 @@ function s:user()
 	return l:user
 endfunction
 
-function s:mail()
+function! s:mail()
 	let l:mail = $MAIL
 	if strlen(l:mail) == 0
 		let l:mail = "marvin@42.fr"
@@ -107,7 +107,7 @@ function s:mail()
 	return l:mail
 endfunction
 
-function s:filename()
+function! s:filename()
 	let l:filename = expand("%:t")
 	if strlen(l:filename) == 0
 		let l:filename = "< new >"
@@ -115,11 +115,11 @@ function s:filename()
 	return l:filename
 endfunction
 
-function s:date()
+function! s:date()
 	return strftime("%Y/%m/%d %H:%M:%S")
 endfunction
 
-function s:insert()
+function! s:insert()
 	let l:line = 11
 
 	" empty line after header
@@ -132,7 +132,7 @@ function s:insert()
 	endwhile
 endfunction
 
-function s:update()
+function! s:update()
 	call s:filetype()
 	if getline(9) =~ s:start . repeat(' ', s:margin - strlen(s:start)) . "Updated: "
 		if &mod
@@ -144,7 +144,7 @@ function s:update()
 	return 1
 endfunction
 
-function s:stdheader()
+function! s:stdheader()
 	if s:update()
 		call s:insert()
 	endif
