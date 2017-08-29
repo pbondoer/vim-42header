@@ -1,5 +1,5 @@
 # vim-42header
-a (better) vim header for 42 projects
+a vim header inspired from 42 and fork from pbondoer header.
 
 ![fancy header image](http://i.imgur.com/WTscMvi.png)
 
@@ -16,17 +16,3 @@ Also, don't forget to set your `$USER` and `$MAIL` variables, marvin lives!
 
 ## Usage
 Copy `42header.vim` to your `~/.vim/plugin` folder. You're set!
-
-### vim-plug
-If you use vim-plug or any other plugin manager, simply add this line to your
-plugin initialization:
-
-```vim
-Plug 'pbondoer/vim-42header'
-```
-
-## Why?
-Part of the **Mexican Standoff** rush, I decided to add a few bonus features
-and I now use this as my header for 42 files. On my linux setup, I have changed
-the variable names in order to be able to have my own environment, but still
-have a functional school environment. Feel free to add things :)!
