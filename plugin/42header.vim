@@ -6,7 +6,7 @@
 "    By: pbondoer <pbondoer@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 19:39:01 by pbondoer          #+#    #+#              "
-"    Updated: 2017/08/30 22:07:53 by pbondoer         ###   ########.fr        "
+"    Updated: 2017/08/30 23:12:22 by pbondoer         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -132,7 +132,7 @@ function! s:insert()
 	endwhile
 endfunction
 
-function! g:stdheader_update()
+function! g:Stdheader_update()
 	call s:filetype()
 	if getline(9) =~ s:start . repeat(' ', s:margin - strlen(s:start)) . "Updated: "
 		if &mod
@@ -144,8 +144,8 @@ function! g:stdheader_update()
 	return 1
 endfunction
 
-function! g:stdheader()
-	if g:stdheader_update()
+function! g:Stdheader()
+	if g:Stdheader_update()
 		call s:insert()
 	endif
 endfunction
