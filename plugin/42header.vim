@@ -6,7 +6,7 @@
 "    By: pbondoer <pbondoer@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 19:39:01 by pbondoer          #+#    #+#              "
-"    Updated: 2017/06/01 11:13:28 by pbondoer         ###   ########.fr        "
+"    Updated: 2017/08/30 22:07:53 by pbondoer         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -132,7 +132,7 @@ function! s:insert()
 	endwhile
 endfunction
 
-function! s:update()
+function! g:stdheader_update()
 	call s:filetype()
 	if getline(9) =~ s:start . repeat(' ', s:margin - strlen(s:start)) . "Updated: "
 		if &mod
@@ -144,13 +144,8 @@ function! s:update()
 	return 1
 endfunction
 
-function! s:stdheader()
-	if s:update()
+function! g:stdheader()
+	if g:stdheader_update()
 		call s:insert()
 	endif
 endfunction
-
-" Bind command and shortcut
-command! Stdheader call s:stdheader ()
-nmap <f1> <esc>:Stdheader<CR>
-autocmd BufWritePre * call s:update ()
