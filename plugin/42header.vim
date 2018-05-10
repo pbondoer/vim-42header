@@ -6,7 +6,7 @@
 "    By: pbondoer <pbondoer@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 19:39:01 by pbondoer          #+#    #+#              "
-"    Updated: 2018/01/26 05:40:38 by pbondoer         ###   ########.fr        "
+"    Updated: 2018/05/09 17:02:06 by kyork            ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -92,7 +92,10 @@ function! s:line(n)
 endfunction
 
 function! s:user()
-	let l:user = $USER
+	let l:user = g:hdr42user
+	if strlen(l:user) == 0
+		let l:user = $USER
+	endif
 	if strlen(l:user) == 0
 		let l:user = "marvin"
 	endif
@@ -100,7 +103,10 @@ function! s:user()
 endfunction
 
 function! s:mail()
-	let l:mail = $MAIL
+	let l:mail = g:hdr42mail
+	if strlen(l:mail) == 0
+		let l:mail = $MAIL
+	endif
 	if strlen(l:mail) == 0
 		let l:mail = "marvin@42.fr"
 	endif
