@@ -15,7 +15,7 @@ a (better) vim header for 42 projects
 Also, don't forget to set your `$USER` and `$MAIL` variables, marvin lives!
 
 ## Usage
-Copy `42header.vim` to your `~/.vim/plugin` folder. You're set!
+Copy `42header.vim` to your `~/.vim/after` folder. You're set!
 
 ### vim-plug
 If you use vim-plug or any other plugin manager, simply add this line to your
