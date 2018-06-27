@@ -14,8 +14,15 @@ a (better) vim header for 42 projects
 
 Also, don't forget to set your `$USER` and `$MAIL` variables, marvin lives!
 
-## Usage
-Copy `42header.vim` to your `~/.vim/after` folder. You're set!
+## Usage 
+
+### No plugin manager
+Copy `42header.vim` to your `~/.vim/after/plugin/` folder. You're set!
+
+### pathogen
+```
+git clone https://github.com/pbondoer/vim-42header.git --recursive && mv -v vim-42header ~/.vim/bundle/
+```
 
 ### vim-plug
 If you use vim-plug or any other plugin manager, simply add this line to your
