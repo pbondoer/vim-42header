@@ -6,7 +6,7 @@
 "    By: pbondoer <pbondoer@student.42.fr>          +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2015/12/06 19:39:01 by pbondoer          #+#    #+#              "
-"    Updated: 2018/05/09 17:07:46 by kyork            ###   ########.fr        "
+"    Updated: 2020/04/27 10:40:37 by aaugusti         ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -64,6 +64,8 @@ function! s:filetype()
 endfunction
 
 function! s:ascii(n)
+	if exists('g:hdr42asciiart')
+		return g:hdr42asciiart[a:n - 3]
 	return s:asciiart[a:n - 3]
 endfunction
 
