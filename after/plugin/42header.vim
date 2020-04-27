@@ -66,6 +66,7 @@ endfunction
 function! s:ascii(n)
 	if exists('g:hdr42asciiart')
 		return g:hdr42asciiart[a:n - 3]
+	endif
 	return s:asciiart[a:n - 3]
 endfunction
 
